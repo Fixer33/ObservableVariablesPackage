@@ -11,5 +11,12 @@
     "name": "Fixer33",
     "email": "fsfixer33@gmail.com",
     "url": "https://github.com/Fixer33"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Example",
+      "description": "Contains sample showing how observable variables are serialized if used as a serialized field",
+      "path": "Samples~/Example"
+    }
+  ]
 }

@@ -1,0 +1,16 @@
+{
+    "name": "com.fixer33.observable-variables.Example",
+    "rootNamespace": "ObservableVariables.Example",
+    "references": [
+        "com.fixer33.observable-variables"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
