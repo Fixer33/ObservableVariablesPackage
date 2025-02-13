@@ -1,6 +1,6 @@
 {
     "name": "com.fixer33.observable-variables.Editor.Tests",
-    "rootNamespace": "ObservableVariables.Editor.Tests",
+    "rootNamespace": "ObservableVariables.EditorTests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
