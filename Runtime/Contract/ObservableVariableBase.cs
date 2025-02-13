@@ -21,11 +21,19 @@ namespace ObservableVariables.Contract
 
         protected T _value;
 
-        protected ObservableVariableBase(T value, bool canBeModifiedInEditor = false)
+        protected ObservableVariableBase()
+        {
+            _value = default!;
+        }
+        
+        protected ObservableVariableBase(T value)
         {
             _value = value;
         }
     }
-    
-    public abstract class ObservableVariableBase{}
+
+    public abstract class ObservableVariableBase
+    {
+        protected ObservableVariableBase(){}
+    }
 }

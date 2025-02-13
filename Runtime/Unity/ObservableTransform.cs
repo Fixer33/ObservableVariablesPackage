@@ -7,8 +7,12 @@ namespace ObservableVariables.Unity
     [Serializable]
     public class ObservableTransform : ObservableVariableBase<Transform>
     {
-        public ObservableTransform(Transform value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableTransform() : base(){}
+        
+        public ObservableTransform(Transform value) : base(value)
         {
         }
+        
+        public static implicit operator ObservableTransform(Transform val) => new(val);
     }
 }

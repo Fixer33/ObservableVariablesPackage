@@ -7,7 +7,9 @@ namespace ObservableVariables.Unity
     [Serializable]
     public class ObservableGameObject : ObservableVariableBase<GameObject>
     {
-        public ObservableGameObject(GameObject value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableGameObject() : base(){}
+        
+        public ObservableGameObject(GameObject value) : base(value)
         {
         }
 

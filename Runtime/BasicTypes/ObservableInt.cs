@@ -6,7 +6,9 @@ namespace ObservableVariables.BasicTypes
     [Serializable]
     public class ObservableInt : ObservableVariableBase<int>
     {
-        public ObservableInt(int value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableInt() : base(){}
+        
+        public ObservableInt(int value) : base(value)
         {
         }
         

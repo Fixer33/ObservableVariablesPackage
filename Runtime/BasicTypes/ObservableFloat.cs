@@ -6,7 +6,9 @@ namespace ObservableVariables.BasicTypes
     [Serializable]
     public class ObservableFloat : ObservableVariableBase<float>
     {
-        public ObservableFloat(float value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableFloat() : base(){}
+        
+        public ObservableFloat(float value) : base(value)
         {
         }
         

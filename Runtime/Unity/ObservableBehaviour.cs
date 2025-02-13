@@ -7,7 +7,9 @@ namespace ObservableVariables.Unity
     [Serializable]
     public class ObservableBehaviour : ObservableVariableBase<Behaviour>
     {
-        public ObservableBehaviour(Behaviour value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableBehaviour() : base(){}
+        
+        public ObservableBehaviour(Behaviour value) : base(value)
         {
         }
         

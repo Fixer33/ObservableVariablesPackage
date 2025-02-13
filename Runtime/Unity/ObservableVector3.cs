@@ -7,7 +7,9 @@ namespace ObservableVariables.Unity
     [Serializable]
     public class ObservableVector3 : ObservableVariableBase<Vector3>
     {
-        public ObservableVector3(Vector3 value, bool canBeModifiedInEditor = false) : base(value, canBeModifiedInEditor)
+        public ObservableVector3() : base(){}
+        
+        public ObservableVector3(Vector3 value) : base(value)
         {
         }
         
