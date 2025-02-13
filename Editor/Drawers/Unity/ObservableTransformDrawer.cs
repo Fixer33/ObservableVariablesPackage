@@ -9,8 +9,8 @@ namespace ObservableVariables.Drawers.Unity
         protected override string GetValueString(ObservableTransform val)
         {
             if (val.Value == null)
-                return val.Value.ToString();
-            return val.Value.ToString();
+                return "null";
+            return val.Value.gameObject.name;
         }
     }
 }
