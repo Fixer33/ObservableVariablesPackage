@@ -28,7 +28,7 @@ Install with upm
 There are 3 samples that are recommended to check before starting to work with the package.
 To install these samples, you need to open "Samples" tab of the installed package in UPM.
 
-![Samples Tab Screenshot](https://paste.pics/STR37)
+![Samples Tab Screenshot](https://prnt.sc/gcCGhjbfNXgY)
 
 ## Running Tests
 
