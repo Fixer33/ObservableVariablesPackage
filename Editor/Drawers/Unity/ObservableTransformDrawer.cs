@@ -1,7 +1,7 @@
 using ObservableVariables.Unity;
 using UnityEditor;
 
-namespace ObservableVariables.Drawers.Unity
+namespace ObservableVariables.Editor.Drawers.Unity
 {
     [CustomPropertyDrawer(typeof(ObservableTransform))]
     public class ObservableTransformDrawer : ObservableVariableDrawer<ObservableTransform>

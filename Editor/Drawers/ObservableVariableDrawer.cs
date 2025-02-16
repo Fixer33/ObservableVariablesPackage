@@ -3,8 +3,12 @@ using ObservableVariables.Contract;
 using UnityEditor;
 using UnityEngine;
 
-namespace ObservableVariables.Drawers
+namespace ObservableVariables.Editor.Drawers
 {
+    /// <summary>
+    /// A base class for drawing serialized field of type ObservableVariable
+    /// </summary>
+    /// <typeparam name="T">Observable variable type</typeparam>
     [CustomPropertyDrawer(typeof(ObservableVariableBase<>))]
     public abstract class ObservableVariableDrawer<T> : PropertyDrawer where T : ObservableVariableBase
     {

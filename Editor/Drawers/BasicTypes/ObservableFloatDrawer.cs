@@ -1,5 +1,6 @@
 using System.Globalization;
 using ObservableVariables.BasicTypes;
+using ObservableVariables.Editor.Drawers;
 using UnityEditor;
 
 namespace ObservableVariables.Drawers.BasicTypes
