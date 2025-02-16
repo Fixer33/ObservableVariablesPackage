@@ -45,6 +45,19 @@ namespace ObservableVariables.EditorTests
         }
         
         [Test]
+        public void StringValueChangedEvent()
+        {
+            const string targetValue = "target";
+            ObservableString stringVar = new ObservableString(string.Empty);
+            bool hasChanged = false;
+            stringVar.ValueChanged += newVal => hasChanged = newVal == targetValue;
+
+            stringVar.Value = targetValue;
+            
+            Assert.IsTrue(hasChanged);
+        }
+        
+        [Test]
         public void FloatValueSet()
         {
             const float targetValue = 5.3f;
@@ -52,7 +65,7 @@ namespace ObservableVariables.EditorTests
 
             floatVar.Value = targetValue;
 
-            Assert.IsTrue(floatVar.Value == targetValue);
+            Assert.AreEqual(floatVar.Value, targetValue);
         }
         
         [Test]
@@ -63,7 +76,7 @@ namespace ObservableVariables.EditorTests
 
             intVar.Value = targetValue;
 
-            Assert.IsTrue(intVar.Value == targetValue);
+            Assert.AreEqual(intVar.Value, targetValue);
         }
         
         [Test]
@@ -74,7 +87,18 @@ namespace ObservableVariables.EditorTests
 
             boolVar.Value = targetValue;
 
-            Assert.IsTrue(boolVar.Value == targetValue);
+            Assert.AreEqual(boolVar.Value, targetValue);
+        }
+        
+        [Test]
+        public void StringValueSet()
+        {
+            const string targetValue = "target";
+            ObservableString stringVar = new ObservableString(string.Empty);
+
+            stringVar.Value = targetValue;
+
+            Assert.AreEqual(stringVar.Value, targetValue);
         }
         
         [Test]
@@ -82,7 +106,7 @@ namespace ObservableVariables.EditorTests
         {
             const float targetValue = 5.3f;
             ObservableFloat floatVar = targetValue;
-            Assert.IsTrue(floatVar.Value == targetValue);
+            Assert.AreEqual(floatVar.Value, targetValue);
         }
         
         [Test]
@@ -90,7 +114,7 @@ namespace ObservableVariables.EditorTests
         {
             const int targetValue = 33;
             ObservableInt intVar = targetValue;
-            Assert.IsTrue(intVar.Value == targetValue);
+            Assert.AreEqual(intVar.Value, targetValue);
         }
         
         [Test]
@@ -98,7 +122,15 @@ namespace ObservableVariables.EditorTests
         {
             const bool targetValue = true;
             ObservableBool boolVar = targetValue;
-            Assert.IsTrue(boolVar.Value == targetValue);
+            Assert.AreEqual(boolVar.Value, targetValue);
+        }
+        
+        [Test]
+        public void StringValueCast()
+        {
+            const string targetValue = "target";
+            ObservableString stringVar = targetValue;
+            Assert.AreEqual(stringVar.Value, targetValue);
         }
     }
 }

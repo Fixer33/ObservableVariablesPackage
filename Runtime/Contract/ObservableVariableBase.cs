@@ -19,9 +19,9 @@ namespace ObservableVariables.Contract
             }
         }
 
-        protected T _value;
+        private T _value;
 
-        protected ObservableVariableBase()
+        protected ObservableVariableBase() : base()
         {
             _value = default!;
         }
