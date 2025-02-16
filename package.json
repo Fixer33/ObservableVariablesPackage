@@ -16,7 +16,17 @@
     {
       "displayName": "Using as a field",
       "description": "Contains sample showing how observable variables are serialized if used as a serialized field",
-      "path": "Samples~/Using as a field"
+      "path": "Samples~/Using as a field",
+    },
+    {
+      "displayName": "Custom variable without drawer",
+      "description": "Shows how to create custom observable variable for the type you need",
+      "path": "Samples~/Custom variable without drawer"
+    },
+    {
+      "displayName": "Custom variable with drawer",
+      "description": "Shows how to create custom observable variable for the type you need. And introduce a drawer for variable browser window",
+      "path": "Samples~/Custom variable with drawer"
     }
   ]
 }
