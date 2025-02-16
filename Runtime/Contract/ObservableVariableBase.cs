@@ -30,10 +30,16 @@ namespace ObservableVariables.Contract
         {
             _value = value;
         }
+
+        public sealed override object GetValue() => Value;
+
+        public static implicit operator T(ObservableVariableBase<T> val) => val.Value;
     }
 
     public abstract class ObservableVariableBase
     {
         protected ObservableVariableBase(){}
+
+        public abstract object GetValue();
     }
 }

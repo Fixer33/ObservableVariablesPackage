@@ -31,12 +31,14 @@ namespace ObservableVariables.Editor.GUI.ObservableVariableElements
             
             switch (variable)
             {
-                // case ObservableFloat observableFloat:
-                //     return new ObservableFloatElement(observableFloat, styleSheet, variableName);
+                case ObservableFloat observableFloat:
+                    return new ObservableFloatElement(observableFloat, styleSheet, variableName);
                 case ObservableInt observableInt:
                     return new ObservableIntElement(observableInt, styleSheet, variableName);
                 case ObservableBool observableBool:
                     return new ObservableBoolElement(observableBool, styleSheet, variableName);
+                case ObservableString observableString:
+                    return new ObservableStringElement(observableString, styleSheet, variableName);
                 case ObservableBehaviour observableBehaviour:
                     return new ObservableBehaviourElement(observableBehaviour, styleSheet, variableName);
                 case ObservableGameObject observableGameObject:
@@ -49,7 +51,7 @@ namespace ObservableVariables.Editor.GUI.ObservableVariableElements
                     return new ObservableVector3Element(observableVector3, styleSheet, variableName);
             }
 
-            throw new NotImplementedException("No variable drawer implemented for type: " + variable.GetType().Name);
+            return new ObservableVariableDefaultElement(variable, styleSheet, variableName);
         }
 
         public static void AddOverride(IObservableVariableElementFactoryOverride @override)

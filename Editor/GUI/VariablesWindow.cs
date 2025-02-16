@@ -8,9 +8,9 @@ using UnityEngine.UIElements;
 
 namespace ObservableVariables.Editor.GUI
 {
-    public class VariablesWindow : EditorWindow
+    internal class VariablesWindow : EditorWindow
     {
-        [MenuItem("Fixer33/Variables window")]
+        [MenuItem("Tools/Fixer33/Variables window")]
         private static void ShowWindow()
         {
             var window = GetWindow<VariablesWindow>();
