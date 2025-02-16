@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
 using ObservableVariables.Contract;
-using ObservableVariables.GUI.ObservableVariableElements;
+using ObservableVariables.Editor.GUI.ObservableVariableElements;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI
+namespace ObservableVariables.Editor.GUI
 {
     public class VariablesWindow : EditorWindow
     {

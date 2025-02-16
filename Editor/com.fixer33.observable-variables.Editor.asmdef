@@ -1,6 +1,6 @@
 {
     "name": "com.fixer33.observable-variables.Editor",
-    "rootNamespace": "ObservableVariables",
+    "rootNamespace": "ObservableVariables.Editor",
     "references": [
         "GUID:4c8d395a9be680341b0ab11d508811d9"
     ],

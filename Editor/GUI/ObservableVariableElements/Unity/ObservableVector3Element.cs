@@ -2,7 +2,7 @@ using ObservableVariables.Unity;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements.Unity
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements.Unity
 {
     public class ObservableVector3Element : ObservableVariableElementBase<ObservableVector3, Vector3, Vector3Field>
     {

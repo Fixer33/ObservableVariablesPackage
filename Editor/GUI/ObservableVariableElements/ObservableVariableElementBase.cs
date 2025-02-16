@@ -1,7 +1,7 @@
 using ObservableVariables.Contract;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements
 {
     public abstract class ObservableVariableElementBase : VisualElement
     {

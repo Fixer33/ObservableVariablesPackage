@@ -3,7 +3,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements.Unity
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements.Unity
 {
     public class ObservableTransformElement : ObservableVariableElementBase<ObservableTransform, Transform, ObjectField>
     {

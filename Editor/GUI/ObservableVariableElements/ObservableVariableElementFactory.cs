@@ -1,16 +1,19 @@
 using System;
+using System.Collections.Generic;
 using ObservableVariables.BasicTypes;
 using ObservableVariables.Contract;
-using ObservableVariables.GUI.ObservableVariableElements.BasicTypes;
-using ObservableVariables.GUI.ObservableVariableElements.Unity;
+using ObservableVariables.Editor.GUI.ObservableVariableElements.BasicTypes;
+using ObservableVariables.Editor.GUI.ObservableVariableElements.Unity;
 using ObservableVariables.Unity;
 using UnityEditor;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements
 {
     public static class ObservableVariableElementFactory
     {
+        private static IList<IObservableVariableElementFactoryOverride> _overrides = new List<IObservableVariableElementFactoryOverride>();
+        
         public static ObservableVariableElementBase Create(ObservableVariableBase variable, Enum key)
         {
             string loadPath = "Packages/com.fixer33.observable-variables/Editor/GUI/Markup and stylesheets/ObservableVariableElement.uss";
@@ -18,12 +21,18 @@ namespace ObservableVariables.GUI.ObservableVariableElements
             loadPath = "Assets/" + loadPath;
 #endif
             string variableName = $"{key.GetType().Name}.{key.ToString()}";
-            
             var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>(loadPath);
+            
+            foreach (var @override in _overrides)
+            {
+                if (@override.IsApplicableTo(variable))
+                    return @override.CreateInputField(variable, styleSheet, variableName);
+            }
+            
             switch (variable)
             {
-                case ObservableFloat observableFloat:
-                    return new ObservableFloatElement(observableFloat, styleSheet, variableName);
+                // case ObservableFloat observableFloat:
+                //     return new ObservableFloatElement(observableFloat, styleSheet, variableName);
                 case ObservableInt observableInt:
                     return new ObservableIntElement(observableInt, styleSheet, variableName);
                 case ObservableBool observableBool:
@@ -40,7 +49,22 @@ namespace ObservableVariables.GUI.ObservableVariableElements
                     return new ObservableVector3Element(observableVector3, styleSheet, variableName);
             }
 
-            return null;
+            throw new NotImplementedException("No variable drawer implemented for type: " + variable.GetType().Name);
         }
+
+        public static void AddOverride(IObservableVariableElementFactoryOverride @override)
+        {
+            if (HasOverride(@override) == false)
+                _overrides.Add(@override);
+        }
+
+        public static void RemoveOverride(IObservableVariableElementFactoryOverride @override)
+        {
+            if (HasOverride(@override))
+                _overrides.Remove(@override);
+        }
+
+        public static bool HasOverride(IObservableVariableElementFactoryOverride @override) =>
+            _overrides.Contains(@override);
     }
 }

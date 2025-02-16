@@ -1,7 +1,7 @@
 using ObservableVariables.BasicTypes;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements.BasicTypes
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements.BasicTypes
 {
     public class ObservableFloatElement : ObservableVariableElementBase<ObservableFloat, float, FloatField>
     {

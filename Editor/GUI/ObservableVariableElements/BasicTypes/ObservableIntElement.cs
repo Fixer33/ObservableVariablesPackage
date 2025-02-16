@@ -1,7 +1,7 @@
 using ObservableVariables.BasicTypes;
 using UnityEngine.UIElements;
 
-namespace ObservableVariables.GUI.ObservableVariableElements.BasicTypes
+namespace ObservableVariables.Editor.GUI.ObservableVariableElements.BasicTypes
 {
     public class ObservableIntElement : ObservableVariableElementBase<ObservableInt, int, IntegerField>
     {
