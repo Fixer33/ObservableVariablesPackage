@@ -25,6 +25,12 @@ Install with upm
 
 ## Usage/Examples
 
+To get a variable by the key use static method Get<T> of a class "Variables" passing the type of the variable and any enum key that you want to be associated with this variable.
+
+You can see all global variables that exists at the time in editor window by opening it "Tools/Fixer33/Variables window". Here you can change viewed type of the variable by pressing buttons "<" and ">". Note that you can change the values of the variables in this window.
+
+If you have created your own variable type, you will only see the current value. To be able to change it from the window, you need to check the sample "Custom variable with drawer".
+
 There are 3 samples that are recommended to check before starting to work with the package.
 To install these samples, you need to open "Samples" tab of the installed package in UPM.
 
