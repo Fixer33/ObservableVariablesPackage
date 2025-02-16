@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Packages/com.fixer33.observable-variables/Editor/Markup%20and%20stylesheets/VariablesWindow.uss?fileID=7433441132597879392&amp;guid=244d34d67c853f141ae814a531673d1d&amp;type=3#VariablesWindow" />
+    <ui:VisualElement name="variables-window__non-runtime-panel" class="panel" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:Label text="Can&apos;t browse variables&#10; in editor mode" name="non-runtime-panel__header-label" style="color: rgb(255, 255, 255); font-size: 24px; -unity-text-align: middle-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="variables-window__runtime-panel" class="panel" style="flex-grow: 1;">
+        <ui:VisualElement name="runtime-panel__header-panel">
+            <ui:Button text="&lt;" name="runtime-panel-header__prev-btn" style="margin-left: 10px;" />
+            <ui:Label text="Label" name="runtime-panel-header__text" />
+            <ui:Button text="&gt;" name="runtime-panel-header__next-btn" style="margin-right: 10px;" />
+        </ui:VisualElement>
+        <ui:ScrollView name="runtime-panel__record-container" />
+    </ui:VisualElement>
+</ui:UXML>

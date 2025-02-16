@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using ObservableVariables.Contract;
 
 namespace ObservableVariables
 {
     public static class Variables
     {
-        private static Dictionary<Enum, ObservableVariableBase> _dictionary = new();
+        private static readonly Dictionary<Enum, ObservableVariableBase> _dictionary = new();
         
         public static T Get<T>(Enum key) where T : ObservableVariableBase, new()
         {
@@ -23,6 +24,14 @@ namespace ObservableVariables
 
             return castedVal;
         }
+        
+#if UNITY_EDITOR
+        public static Enum[] Editor_GetAllKeysForType(Type type) =>
+            (from dictRecord in _dictionary where dictRecord.Value.GetType() == type select dictRecord.Key).ToArray();
+
+        public static ObservableVariableBase Editor_GetExisting(Enum key) =>
+            _dictionary.GetValueOrDefault(key);
+#endif
 
 #if UNITY_INCLUDE_TESTS
         public static void Tests_Clear()

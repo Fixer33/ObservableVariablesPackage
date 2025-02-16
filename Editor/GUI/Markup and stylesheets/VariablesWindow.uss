@@ -1,0 +1,65 @@
+.panel {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#runtime-panel__header-panel {
+    height: 30px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#runtime-panel__header-panel Button {
+    margin-top: 1px;
+    margin-right: 0;
+    margin-bottom: 1px;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 6px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    transition-duration: 0.2s;
+}
+
+#runtime-panel__header-panel Label {
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    padding-bottom: 6px;
+}
+
+#runtime-panel__header-panel Button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+#runtime-panel__header-panel Button:active {
+    scale: 0.9 0.9;
+}
+
+#runtime-panel__record-container {
+    flex-grow: 1;
+}

@@ -1,0 +1,17 @@
+:root
+{
+    height: 30px;
+    flex-direction: row;
+}
+
+#observable-variable-element__name{
+    -unity-text-align: middle-left;
+    color: white;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+#observable-variable-element__value-edit-element{
+    flex-grow: 1;
+    width: 50%;
+}
