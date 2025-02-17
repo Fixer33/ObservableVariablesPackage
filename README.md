@@ -49,6 +49,23 @@ To run these tests:
     2b. RMB on specific test and choose "Run"
 ```
 
+## Inspired by SOAP and its downsides
+
+Any game must have a way of classes sharing data.
+For those cases, SOAP (ScriptableObject Architecture Pattern) comes very handy.
+
+Nevertheless, SOAP can be overwhelming with the amount of actions you need to perform in order to create a simple shared int value:
+create a scriptable object, declare a field, and assign the object to the field in inspector.
+
+This way allows you to have high modularity in your system, do some custom value drawers, context actions, etc.
+But in most cases, you will never change the assigned SO variable reference.
+
+More than that, if you are using addressables, you need to use dependency injection to avoid SO duplication.
+Possibly, you will need keys for large amounts of such variables.
+
+This package removes the need to create new assets in your project, create an installer and to do extra work like this.
+Now you just need to create an enum (one or multiple) to store the keys for your variables.
+After that, just query it with Variables.Get() method and enjoy your value.
 
 ## API Reference
 
