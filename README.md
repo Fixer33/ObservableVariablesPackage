@@ -1,5 +1,5 @@
 
-# Observable variables for Unity Engine
+# Observable variable package for Unity Engine
 
 This custom Unity package is designed to provide a simple API to simplify sharing global variables throughout your project without creating infinite Singleton objects.
 
@@ -54,7 +54,7 @@ To run these tests:
 
 #### Get global variable
 
-```http
+```bash
   Variables.Get<T>(Enum variableKey)
 ```
 

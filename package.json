@@ -1,7 +1,7 @@
 {
   "name": "com.fixer33.observable-variables",
   "version": "1.0.0",
-  "displayName": "Fixer33 - Observable Variables",
+  "displayName": "Observable Variables",
   "description": "This is an example package",
   "unity": "6000.0",
   "dependencies": {
