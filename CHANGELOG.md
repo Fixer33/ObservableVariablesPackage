@@ -1,3 +1,13 @@
+## [1.0.1] - 2025-03-18
+
+### Added
+
+- Shortcut methods for getting default observable variable types
+
+### Changed
+
+### Fixed
+
 ## [1.0.0] - 2025-02-13
 
 ### Added
@@ -7,7 +17,3 @@
 ### Changed
 
 ### Fixed
-
-[//]: # (- [PROJECTNAME-UUUU]&#40;http://tickets.projectname.com/browse/PROJECTNAME-UUUU&#41;)
-
-[//]: # (  MINOR Fix module foo tests)

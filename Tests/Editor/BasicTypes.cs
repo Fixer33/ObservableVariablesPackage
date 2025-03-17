@@ -5,6 +5,11 @@ namespace ObservableVariables.EditorTests
 {
     public class BasicTypes
     {
+        private enum VarKey
+        {
+            TestKey
+        }
+        
         [Test]
         public void FloatValueChangedEvent()
         {
@@ -131,6 +136,66 @@ namespace ObservableVariables.EditorTests
             const string targetValue = "target";
             ObservableString stringVar = targetValue;
             Assert.AreEqual(stringVar.Value, targetValue);
+        }
+        
+        [Test]
+        public void FloatShortcutMethod()
+        {
+            ObservableFloat var1 = Variables.GetFloat(VarKey.TestKey);
+            ObservableFloat var2 = Variables.GetFloat(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
+        }
+        
+        [Test]
+        public void IntShortcutMethod()
+        {
+            ObservableInt var1 = Variables.GetInt(VarKey.TestKey);
+            ObservableInt var2 = Variables.GetInt(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
+        }
+        
+        [Test]
+        public void BoolShortcutMethod()
+        {
+            ObservableBool var1 = Variables.GetBool(VarKey.TestKey);
+            ObservableBool var2 = Variables.GetBool(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
+        }
+        
+        [Test]
+        public void StringShortcutMethod()
+        {
+            ObservableString var1 = Variables.GetString(VarKey.TestKey);
+            ObservableString var2 = Variables.GetString(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
         }
     }
 }

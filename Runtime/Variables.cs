@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using ObservableVariables.BasicTypes;
 using ObservableVariables.Contract;
+using ObservableVariables.Unity;
 
 namespace ObservableVariables
 {
@@ -34,6 +36,25 @@ namespace ObservableVariables
 
             return castedVal;
         }
+
+        #region Basic types shortcut methods
+
+        public static ObservableFloat GetFloat(Enum key) => Get<ObservableFloat>(key);
+        public static ObservableInt GetInt(Enum key) => Get<ObservableInt>(key);
+        public static ObservableBool GetBool(Enum key) => Get<ObservableBool>(key);
+        public static ObservableString GetString(Enum key) => Get<ObservableString>(key);
+
+        #endregion
+
+        #region Unity observable types shortcut methods
+
+        public static ObservableGameObject GetGameObject(Enum key) => Get<ObservableGameObject>(key);
+        public static ObservableBehaviour GetBehaviour(Enum key) => Get<ObservableBehaviour>(key);
+        public static ObservableTransform GetTransform(Enum key) => Get<ObservableTransform>(key);
+        public static ObservableVector2 GetVector2(Enum key) => Get<ObservableVector2>(key);
+        public static ObservableVector3 GetVector3(Enum key) => Get<ObservableVector3>(key);
+
+        #endregion
         
 #if UNITY_EDITOR
         /// <summary>

@@ -1,6 +1,6 @@
 {
   "name": "com.fixer33.observable-variables",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Observable Variables",
   "description": "This custom Unity package is designed to provide a simple API to simplify sharing global variables throughout your project without creating infinite Singleton objects.\n\nIt also implements Observable pattern by sharing ValueChanged event to avoid constant reading the value from Update loop.",
   "unity": "6000.0",

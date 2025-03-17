@@ -6,6 +6,11 @@ namespace ObservableVariables.EditorTests
 {
     public class UnityTypes
     {
+        private enum VarKey
+        {
+            TestKey
+        }
+        
         [Test]
         public void Vector3ValueChangedEvent()
         {
@@ -123,6 +128,51 @@ namespace ObservableVariables.EditorTests
             finally
             {
                 GameObject.DestroyImmediate(targetValue);
+            }
+        }
+
+        [Test]
+        public void Vector2ShortcutMethod()
+        {
+            ObservableVector2 var1 = Variables.GetVector2(VarKey.TestKey);
+            ObservableVector2 var2 = Variables.GetVector2(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
+        }
+        
+        [Test]
+        public void Vector3ShortcutMethod()
+        {
+            ObservableVector3 var1 = Variables.GetVector3(VarKey.TestKey);
+            ObservableVector3 var2 = Variables.GetVector3(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
+            }
+        }
+        
+        [Test]
+        public void GameObjectShortcutMethod()
+        {
+            ObservableGameObject var1 = Variables.GetGameObject(VarKey.TestKey);
+            ObservableGameObject var2 = Variables.GetGameObject(VarKey.TestKey);
+            try
+            {
+                Assert.AreSame(var1, var2);
+            }
+            finally
+            {
+                Variables.Tests_Clear();
             }
         }
     }
