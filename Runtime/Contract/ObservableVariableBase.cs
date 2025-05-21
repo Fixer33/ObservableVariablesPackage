@@ -14,21 +14,36 @@ namespace ObservableVariables.Contract
             get => _value;
             set
             {
+                IObservableVariableEventHolder? eventHolder;
+                if (_valueIsEventHolder)
+                {
+                    eventHolder = _value as IObservableVariableEventHolder;
+                    eventHolder?.OnDataRemovedObservableVariable(this);
+                }
+                
                 _value = value;
+
+                eventHolder = value as IObservableVariableEventHolder;
+                eventHolder?.OnDataStoredInObservableVariable(this);
+                _valueIsEventHolder = eventHolder != null;
+                
                 ValueChanged?.Invoke(_value);
             }
         }
 
+        private bool _valueIsEventHolder;
         private T _value;
 
         protected ObservableVariableBase() : base()
         {
             _value = default!;
+            _valueIsEventHolder = _value is IObservableVariableEventHolder;
         }
         
         protected ObservableVariableBase(T value)
         {
             _value = value;
+            _valueIsEventHolder = _value is IObservableVariableEventHolder;
         }
 
         public sealed override object GetValue() => Value;
