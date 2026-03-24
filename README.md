@@ -69,15 +69,46 @@ After that, just query it with Variables.Get() method and enjoy your value.
 
 ## API Reference
 
-#### Get global variable
+### Get Global Variable
 
-```bash
-  Variables.Get<T>(Enum variableKey)
+```csharp
+Variables.Get<T>(Enum variableKey)
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `T` | `ObservableVariableType` | The type of a variable you want to recieve |
-| `variableKey` | `Enum` | Any enum value that serves as a key for a variable |
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `T` | `ObservableVariableType` | The type of a variable you want to receive. |
+| `variableKey` | `Enum` | Any enum value that serves as a key for a variable. |
+
+### Shortcut Methods
+
+The `Variables` class provides shortcut methods for common types:
+
+- `Variables.GetFloat(Enum key)`
+- `Variables.GetInt(Enum key)`
+- `Variables.GetBool(Enum key)`
+- `Variables.GetString(Enum key)`
+- `Variables.GetGameObject(Enum key)`
+- `Variables.GetBehaviour(Enum key)`
+- `Variables.GetTransform(Enum key)`
+- `Variables.GetVector2(Enum key)`
+- `Variables.GetVector3(Enum key)`
+
+### Event Holders
+
+Objects can implement `IObservableVariableEventHolder<T>` to be notified when they are stored in or removed from an `ObservableVariable`.
+
+```csharp
+public class MyData : IObservableVariableEventHolder<ObservableMyData>
+{
+    public void OnDataStoredInObservableVariable(ObservableMyData variable) {
+        // Called when this instance is assigned to a variable
+    }
+
+    public void OnDataRemovedObservableVariable(ObservableMyData variable) {
+        // Called when this instance is removed from a variable
+    }
+}
+```
 
 

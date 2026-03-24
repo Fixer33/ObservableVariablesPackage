@@ -1,26 +1,15 @@
-## [1.1.0] - 2025-05-21
+## [1.2.0] - 2026-03-24
 
 ### Added
+- `IObservableVariableEventHolder`: Interface for objects to receive events when they are stored in or removed from an `ObservableVariable`.
+- Shortcut methods in the `Variables` class for common types: `GetFloat`, `GetInt`, `GetBool`, `GetString`, `GetGameObject`, `GetBehaviour`, `GetTransform`, `GetVector2`, and `GetVector3`.
 
-- IObservableVariableEventHolder interface for value to have events fired when
-value was stored or removed from a variable 
-
-## [1.0.1] - 2025-03-18
+## [1.0.1] - 2025-02-17
 
 ### Added
-
-- Shortcut methods for getting default observable variable types
-
-### Changed
-
-### Fixed
+- Initial implementation of variable retrieval shortcut methods.
 
 ## [1.0.0] - 2025-02-13
 
 ### Added
-
-- Created first version of package
-
-### Changed
-
-### Fixed
+- Initial release of the Observable Variables package.

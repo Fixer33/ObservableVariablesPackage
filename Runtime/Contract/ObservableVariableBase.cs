@@ -3,12 +3,24 @@ using System;
 
 namespace ObservableVariables.Contract
 {
+    /// <summary>
+    /// Base class for observable variables with value change notification.
+    /// </summary>
+    /// <typeparam name="T">The type of the value being observed.</typeparam>
     [Serializable]
     public abstract class ObservableVariableBase<T> : ObservableVariableBase
     {
         public delegate void ValueChangedDelegate(T newValue);
+        
+        /// <summary>
+        /// Event triggered when the value of the variable changes.
+        /// </summary>
         public event ValueChangedDelegate ValueChanged = delegate { };
         
+        /// <summary>
+        /// The current value of the variable. Triggers <see cref="ValueChanged"/> when modified.
+        /// Also handles <see cref="IObservableVariableEventHolder"/> notifications.
+        /// </summary>
         public T Value
         {
             get => _value;
