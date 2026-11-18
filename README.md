@@ -37,6 +37,11 @@ To install these samples, you need to open "Samples" tab of the installed packag
 ![SamplesTab](https://github.com/user-attachments/assets/4a8eaac3-8075-404e-8170-322db8b7bd08)
 
 
+## Documentation
+
+- [Package Description](Documentation/Package%20Description.md) - purpose, architecture, API, dependencies, samples, tests and current state.
+- [Open Questions](Documentation/Open%20Questions.md) - unresolved points found while documenting the package.
+
 ## Running Tests
 
 There are editor tests included using Unity's package "com.unity.test-framework"
