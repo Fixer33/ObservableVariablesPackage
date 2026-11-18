@@ -4,7 +4,7 @@ using UnityEditor;
 
 namespace ObservableVariables.Drawers.BasicTypes
 {
-    [CustomPropertyDrawer(typeof(ObservableInt))]
+    [CustomPropertyDrawer(typeof(ObservableBool))]
     public class ObservableBoolDrawer : ObservableVariableDrawer<ObservableBool>
     {
         protected override string GetValueString(ObservableBool val) => val.Value.ToString();

@@ -26,6 +26,9 @@ namespace ObservableVariables.Contract
             get => _value;
             set
             {
+                if (System.Collections.Generic.EqualityComparer<T>.Default.Equals(_value, value))
+                    return;
+
                 IObservableVariableEventHolder? eventHolder;
                 if (_valueIsEventHolder)
                 {
