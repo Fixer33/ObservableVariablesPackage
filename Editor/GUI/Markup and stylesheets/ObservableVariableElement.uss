@@ -1,13 +1,20 @@
 :root
 {
-    height: 30px;
+    min-height: 40px;
     flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 4px 8px 4px 12px;
+    background-color: #1E222B;
+    border-color: #262B35;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
 #observable-variable-element__name{
     -unity-text-align: middle-left;
-    color: white;
-    margin-left: 10px;
+    color: #A3ACBD;
+    margin-left: 0;
     flex-grow: 1;
 }
 
@@ -15,5 +22,21 @@
     flex-grow: 1;
     width: 50%;
     -unity-text-align: middle-left;
-    color: white;
+    color: #E8ECF3;
+}
+
+#observable-variable-element__value-edit-element TextInput,
+#observable-variable-element__value-edit-element .unity-base-text-field__input {
+    background-color: #0F1115;
+    border-color: #343B49;
+    border-radius: 10px;
+    color: #E8ECF3;
+}
+
+#observable-variable-element__value-edit-element:focus .unity-base-text-field__input {
+    border-color: #3B82F6;
+}
+
+#observable-variable-element__value-edit-element:disabled {
+    opacity: 0.6;
 }

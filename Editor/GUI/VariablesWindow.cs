@@ -18,12 +18,13 @@ namespace ObservableVariables.Editor.GUI
             window.Show();
         }
 
+        private const string LastTypePrefKey = "ObservableVariables.VariablesWindow.LastType";
+
         private Type[] _possibleTypes;
         private int _currentType;
         private int _refreshCounter;
-        
-        private Button _nextTypeBtn, _prevTypeBtn;
-        private Label _currentTypeHeader;
+
+        private DropdownField _typeDropdown;
         private ScrollView _recordsContainer;
         private VisualElement _nonRuntimePanel, _runtimePanel;
 
@@ -33,45 +34,55 @@ namespace ObservableVariables.Editor.GUI
 #if PACKAGES_DEV
             loadPath = "Assets/" + loadPath;
 #endif
-            
+
             var tree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(loadPath + ".uxml");
             if (tree != null)
             {
                 VisualElement root = rootVisualElement;
                 tree.CloneTree(root);
             }
-            
+
             var style = AssetDatabase.LoadAssetAtPath<StyleSheet>(loadPath + ".uss");
             if (style != null)
             {
                 rootVisualElement.styleSheets.Add(style);
             }
-            
+
             _possibleTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly => assembly.GetTypes())
                 .Where(i => i.IsSubclassOf(typeof(ObservableVariableBase)) && i.IsAbstract == false).ToArray();
 
             _nonRuntimePanel = rootVisualElement.Q<VisualElement>("variables-window__non-runtime-panel");
-            
             _runtimePanel = rootVisualElement.Q<VisualElement>("variables-window__runtime-panel");
-            _currentTypeHeader = rootVisualElement.Q<Label>("runtime-panel-header__text");
-            _nextTypeBtn = rootVisualElement.Q<Button>("runtime-panel-header__next-btn");
-            _nextTypeBtn.clicked += NextTypeBtnClicked;
-            _prevTypeBtn = rootVisualElement.Q<Button>("runtime-panel-header__prev-btn");
-            _prevTypeBtn.clicked += PrevTypeBtnClicked;
             _recordsContainer = rootVisualElement.Q<ScrollView>("runtime-panel__record-container");
+
+            _typeDropdown = rootVisualElement.Q<DropdownField>("runtime-panel__type-dropdown");
+            _typeDropdown.choices = _possibleTypes.Select(t => t.Name).ToList();
+
+            // Restore last selected type; fall back to the first one if it no longer exists
+            string saved = EditorPrefs.GetString(LastTypePrefKey, string.Empty);
+            _currentType = Mathf.Max(0, Array.FindIndex(_possibleTypes, t => t.Name == saved));
+            if (_possibleTypes.Length > 0)
+                _typeDropdown.SetValueWithoutNotify(_possibleTypes[_currentType].Name);
+            _typeDropdown.RegisterValueChangedCallback(OnTypeChanged);
 
             SetCurrentType(_currentType);
         }
 
+        private void OnTypeChanged(ChangeEvent<string> evt)
+        {
+            int index = Math.Max(0, Array.FindIndex(_possibleTypes, t => t.Name == evt.newValue));
+            EditorPrefs.SetString(LastTypePrefKey, _possibleTypes[index].Name);
+            SetCurrentType(index);
+        }
+
         private void SetCurrentType(int index)
         {
-            if (index < 0)
-                index = _possibleTypes.Length - 1;
-            else if (index >= _possibleTypes.Length)
+            if (_possibleTypes.Length == 0)
+                return;
+            if (index < 0 || index >= _possibleTypes.Length)
                 index = 0;
-            _currentType = index % _possibleTypes.Length;
+            _currentType = index;
 
-            _currentTypeHeader.text = _possibleTypes[_currentType].Name;
             _recordsContainer.contentContainer.Clear();
 
             var variableKeys = Variables.Editor_GetAllKeysForType(_possibleTypes[_currentType]);
@@ -82,21 +93,11 @@ namespace ObservableVariables.Editor.GUI
             }
         }
 
-        private void PrevTypeBtnClicked()
-        {
-            SetCurrentType(_currentType - 1);
-        }
-
-        private void NextTypeBtnClicked()
-        {
-            SetCurrentType(_currentType + 1);
-        }
-
         private void Update()
         {
             if (_nonRuntimePanel == null || _runtimePanel == null)
                 return;
-            
+
             _nonRuntimePanel.visible = Application.isPlaying == false;
             _runtimePanel.visible = Application.isPlaying;
 
