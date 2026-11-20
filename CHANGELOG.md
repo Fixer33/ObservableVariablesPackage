@@ -1,3 +1,15 @@
+## [1.2.1] - 2026-11-20
+
+### Changed
+- Variables window restyled; the type dropdown replaces the arrows.
+- Variable value events are no longer raised when the assigned value is unchanged.
+
+### Fixed
+- `ObservableBool` property drawer used the wrong target.
+
+### Documentation
+- Added Package Description, Usage Guide and Open Questions documents, linked from the README.
+
 ## [1.2.0] - 2026-03-24
 
 ### Added
